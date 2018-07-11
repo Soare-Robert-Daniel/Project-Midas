@@ -1,0 +1,31 @@
+# Virtual Machine Set Up
+
+Note: Make sure you have the rigth ports open
+i.e: SSH - 22, HTTP/HTTPS - 80
+1. Get Ubuntu Server LTS 18.04
+2. Run
+'''
+sudo apt-get update        # Fetches the list of available updates
+sudo apt-get upgrade       # Strictly upgrades the current packages
+sudo apt-get dist-upgrade  # Installs updates (new ones)
+'''
+3. SSH-server is aleready instaled for this version
+4. Install Git
+'''
+sudo apt-get install git
+'''
+# Ruby
+1. Install Ruby
+'''
+sudo apt-get install ruby-full
+'''
+2. Install Sinatra
+'''
+sudo gem install sinatra
+sudo gem install sinatra-contrib
+'''
+Note: We need to sinatra-contrib for the Realoader which will automatically require files defining routes, filters, error handlers and inline templates, with every incoming request, but only if they have been updated.
+
+# Host Machine (Win 10)
+1. Install Putty
+2. Install WinSCP
