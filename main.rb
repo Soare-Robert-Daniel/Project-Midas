@@ -3,7 +3,7 @@ require 'sinatra/reloader'
 require 'erb'
 
 
-Dir.glob('./{helpers,controllers}/*.rb').each { |file| require file }
+Dir.glob('./{helpers,controllers,renders}/*.rb').each { |file| require file }
 
 class App < Sinatra::Base
 
@@ -17,7 +17,8 @@ class App < Sinatra::Base
     end
 
     get '/' do 
-        'Nice!'
+        user = UserPanel.new("views/user_panel.erb").getHTML()
+        erb :layout, {:locals =>{:info_panel => user, :content => "<p> Content <p>"}}
     end
 
     get '/welcome/:name' do
@@ -29,6 +30,7 @@ class App < Sinatra::Base
         title "Content Page"
         erb :content, {:layout => :layout}
     end
+
 end
 
 # Create the routes from App

@@ -1,2 +1,2 @@
 # Project-Midas
-A simple Single Page Application for an e-shop!
+A simple Single Page Application for a gambling app!
