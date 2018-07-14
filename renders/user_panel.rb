@@ -7,14 +7,15 @@ class UserPanel
         @panel = ERB.new(File.read(template_path))
     end
 
-    def build()
+    def build(user_name = 'none', user_status = 'none')
         # Set the bindings
-        @name, @status = getDataFromDatebase()
-        binding
+        # @name, @status = getDataFromDatebase()
+        @name = user_name
+        @status = user_status
     end
 
     def getHTML()
-        @panel.result build
+        @panel.result binding
     end
 
     def getDataFromDatebase()

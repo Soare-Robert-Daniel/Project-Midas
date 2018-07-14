@@ -26,7 +26,7 @@
     }
     
     body {
-      background-color: #303E73;
+      background-color: #AA9639;
     }
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 400px) {
@@ -48,53 +48,7 @@
   </style>
 </head>
 <body class="background">
-
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-    
-    <h1 class="title_custom">Project: Midas</h1> 
-        <%= info_panel%>
-    </div>
-
-    <div class="col-sm-10" id="content">
-      <%= content%>
-    </div>
-  </div>
-</div>
-
-
-<footer class="container-fluid">
-  <p>Footer Text</p>
-</footer>
-
-</body>
-<script>
-// Requests.js -------------------------------------------------------------------------
-var HttpClient = function() {
-    this.get = function(aUrl, aCallback) {
-        var anHttpRequest = new XMLHttpRequest();
-        anHttpRequest.onreadystatechange = function() { 
-            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
-                aCallback(anHttpRequest.responseText);
-        }
-
-        anHttpRequest.open( "GET", aUrl, true );            
-        anHttpRequest.send( null );
-    }
-}
-
-var client = new HttpClient();
-
-function test()
-{
-    url = 'http://172.21.19.203:4567/welcome/Test';
-    client.get(url, function(response) {
-        document.getElementById("content").innerHTML = response;
-    });
-}
-// END ----------------------------------------------------------------------------------
-</script>
+    <%= yield%>
 </html>
 
 
